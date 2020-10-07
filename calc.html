@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+    <style>
+      .history {
+        background-color: white;
+        color: black;
+        border: 1px solid #000;
+        height: 4rem;
+        margin-bottom: 10px;
+      }
+      .button-div {
+        background-color: whitesmoke;
+        color: black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center" style="padding: 10% 30%;">
+      <div class="history text-right">
+        0
+      </div>
+      <div class="buttons row">
+        <div class="col-md-3 button-div"><button onclick="item(7)">7</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(8)">8</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(9)">9</button></div>
+        <div class="col-md-3 button-div"><button onclick="op(mul)">x</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(4)">4</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(5)">5</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(6)">6</button></div>
+        <div class="col-md-3 button-div"><button onclick="op(sub)">-</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(1)">1</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(2)">2</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(3)">3</button></div>
+        <div class="col-md-3 button-div"><button onclick="op(add)">+</button></div>
+        <div class="col-md-3 button-div"><button onclick="clear()">clear</button></div>
+        <div class="col-md-3 button-div"><button onclick="item(0)">0</button></div>
+        <div class="col-md-3 button-div"><button onclick="op(divide)">/</button></div>
+        <div class="col-md-3 button-div" style="background-color: lightblue;"><button onclick="result()">=</button></div>
+      </div>
+    </div>
+
+    <script>
+      let first = null;
+      let second = null;
+      let operation = null;
+      let res = null;
+
+      function result() {
+        if (first && second && operation) res(operation);
+      }
+
+      function op(opr) {
+        if (first && res == null) operation = op;
+        else if (first && second && operation) {
+          final(operation);
+        }
+      }
+      function updateScreen(str) {
+        document.getElementsByClassName("history").innerHTML = "abc";
+      }
+      function item(e) {
+        if (operation == null) {
+          first = e;
+        } else {
+          second = e;
+        }
+        updateScreen(e);
+      }
+      function add() {
+        res = first + second;
+        first = res;
+        updateScreen(res);
+      }
+      function sub() {
+        res = first - second;
+        first = res;
+        updateScreen(res);
+      }
+      function mul() {
+        res = first * second;
+        first = res;
+        updateScreen(res);
+      }
+      function divide() {
+        res = first / second;
+        first = res;
+        updateScreen(res);
+      }
+      function final(callback) {
+        if (first && operation && second) callback();
+      }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
