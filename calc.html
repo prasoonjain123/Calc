@@ -104,8 +104,11 @@
         }
         function divide() {
             res = parseInt(first) / parseInt(second);
-            if(isNaN(res)){
-                res = 0;
+            console.log(res)
+            if(isNaN(res) || res === Infinity){
+                clr();
+                updateScreen(0);
+                return;
             }
             first = res;
             second = "";
